@@ -181,7 +181,7 @@
             // 
             // CustomerPhone
             // 
-            this.CustomerPhone.DataPropertyName = "CustomerName";
+            this.CustomerPhone.DataPropertyName = "CustomerPhone";
             this.CustomerPhone.HeaderText = "CustomerPhone";
             this.CustomerPhone.MinimumWidth = 6;
             this.CustomerPhone.Name = "CustomerPhone";

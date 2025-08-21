@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
@@ -37,20 +41,16 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.txtRole = new System.Windows.Forms.TextBox();
-            this.lblRole = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.txtPhone);
+            this.panel1.Controls.Add(this.lblPhone);
             this.panel1.Controls.Add(this.txtName);
             this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.txtRole);
-            this.panel1.Controls.Add(this.lblRole);
             this.panel1.Controls.Add(this.btnRegister);
             this.panel1.Controls.Add(this.txtPassword);
             this.panel1.Controls.Add(this.txtUsername);
@@ -64,6 +64,42 @@
             this.panel1.Size = new System.Drawing.Size(399, 514);
             this.panel1.TabIndex = 1;
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Location = new System.Drawing.Point(150, 211);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(203, 27);
+            this.txtPhone.TabIndex = 14;
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(48, 218);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(56, 20);
+            this.lblPhone.TabIndex = 13;
+            this.lblPhone.Text = "Phone";
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(150, 150);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(203, 27);
+            this.txtName.TabIndex = 11;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(46, 153);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(58, 20);
+            this.lblName.TabIndex = 10;
+            this.lblName.Text = "Name ";
+            // 
             // btnRegister
             // 
             this.btnRegister.Location = new System.Drawing.Point(89, 443);
@@ -72,6 +108,7 @@
             this.btnRegister.TabIndex = 7;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // txtPassword
             // 
@@ -80,11 +117,12 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(203, 27);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
             this.txtUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsername.Location = new System.Drawing.Point(150, 288);
+            this.txtUsername.Location = new System.Drawing.Point(150, 278);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(203, 27);
             this.txtUsername.TabIndex = 5;
@@ -121,7 +159,7 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(46, 291);
+            this.lblUsername.Location = new System.Drawing.Point(46, 281);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(91, 20);
             this.lblUsername.TabIndex = 1;
@@ -135,42 +173,7 @@
             this.btnBack.TabIndex = 0;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // txtRole
-            // 
-            this.txtRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRole.Location = new System.Drawing.Point(150, 218);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(203, 27);
-            this.txtRole.TabIndex = 9;
-            // 
-            // lblRole
-            // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRole.Location = new System.Drawing.Point(46, 225);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(43, 20);
-            this.lblRole.TabIndex = 8;
-            this.lblRole.Text = "Role";
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(150, 159);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(203, 27);
-            this.txtName.TabIndex = 11;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(46, 162);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(58, 20);
-            this.lblName.TabIndex = 10;
-            this.lblName.Text = "Name ";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Register
             // 
@@ -191,8 +194,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox txtRole;
-        private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUsername;
@@ -201,5 +202,7 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.Label lblPhone;
     }
 }

@@ -107,5 +107,24 @@ namespace saleProduct
                 UC_Statistics.Instance.BringToFront();
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult confirm = MessageBox.Show(
+              "Bạn có chắc muốn đăng xuất?",
+               "Xác nhận",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                // Mở lại form đăng nhập
+                LoginForm loginForm = new LoginForm();
+                loginForm.Show();
+
+                // Đóng form hiện tại (MainForm)
+                this.Hide();
+            }
+        }
     }
 }

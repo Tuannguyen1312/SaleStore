@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnImportReceipt = new System.Windows.Forms.Button();
@@ -37,8 +38,8 @@
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
             this.ucPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -56,6 +57,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.LightBlue;
+            this.splitContainer1.Panel1.Controls.Add(this.btnLogout);
             this.splitContainer1.Panel1.Controls.Add(this.pictureBox1);
             this.splitContainer1.Panel1.Controls.Add(this.btnStatistics);
             this.splitContainer1.Panel1.Controls.Add(this.btnImportReceipt);
@@ -72,6 +74,16 @@
             this.splitContainer1.SplitterDistance = 185;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnLogout
+            // 
+            this.btnLogout.Location = new System.Drawing.Point(40, 605);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(113, 47);
+            this.btnLogout.TabIndex = 7;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::saleProduct.Properties.Resources.logo_btec1;
@@ -84,7 +96,7 @@
             // 
             // btnStatistics
             // 
-            this.btnStatistics.Location = new System.Drawing.Point(40, 540);
+            this.btnStatistics.Location = new System.Drawing.Point(40, 460);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(113, 47);
             this.btnStatistics.TabIndex = 5;
@@ -94,7 +106,7 @@
             // 
             // btnImportReceipt
             // 
-            this.btnImportReceipt.Location = new System.Drawing.Point(40, 453);
+            this.btnImportReceipt.Location = new System.Drawing.Point(40, 380);
             this.btnImportReceipt.Name = "btnImportReceipt";
             this.btnImportReceipt.Size = new System.Drawing.Size(113, 47);
             this.btnImportReceipt.TabIndex = 4;
@@ -104,7 +116,7 @@
             // 
             // btnOrder
             // 
-            this.btnOrder.Location = new System.Drawing.Point(40, 367);
+            this.btnOrder.Location = new System.Drawing.Point(40, 300);
             this.btnOrder.Name = "btnOrder";
             this.btnOrder.Size = new System.Drawing.Size(113, 47);
             this.btnOrder.TabIndex = 3;
@@ -114,7 +126,7 @@
             // 
             // btnCustomer
             // 
-            this.btnCustomer.Location = new System.Drawing.Point(40, 281);
+            this.btnCustomer.Location = new System.Drawing.Point(40, 228);
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.Size = new System.Drawing.Size(113, 47);
             this.btnCustomer.TabIndex = 2;
@@ -124,7 +136,7 @@
             // 
             // btnEmployee
             // 
-            this.btnEmployee.Location = new System.Drawing.Point(40, 197);
+            this.btnEmployee.Location = new System.Drawing.Point(40, 160);
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Size = new System.Drawing.Size(113, 47);
             this.btnEmployee.TabIndex = 1;
@@ -134,7 +146,7 @@
             // 
             // btnProduct
             // 
-            this.btnProduct.Location = new System.Drawing.Point(40, 113);
+            this.btnProduct.Location = new System.Drawing.Point(40, 98);
             this.btnProduct.Name = "btnProduct";
             this.btnProduct.Size = new System.Drawing.Size(113, 47);
             this.btnProduct.TabIndex = 0;
@@ -149,16 +161,6 @@
             this.ucPanel.Size = new System.Drawing.Size(884, 593);
             this.ucPanel.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(251, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(362, 52);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Store\'X Manager";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
@@ -168,12 +170,23 @@
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(251, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(358, 51);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Store\'X Manager";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1079, 664);
             this.Controls.Add(this.splitContainer1);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "MainForm";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Panel ucPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLogout;
     }
 }

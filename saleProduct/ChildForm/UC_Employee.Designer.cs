@@ -81,6 +81,7 @@
             this.btnAddEmployee.TabIndex = 33;
             this.btnAddEmployee.Text = "Add";
             this.btnAddEmployee.UseVisualStyleBackColor = false;
+            this.btnAddEmployee.Click += new System.EventHandler(this.btnAddEmployee_Click);
             // 
             // lblRole
             // 

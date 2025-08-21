@@ -31,14 +31,14 @@ namespace saleProduct.ChildForm
         public UC_Product()
         {
             InitializeComponent();
-            conn = new SqlConnection("server = WINDOWS-11; database = SaleStoreX ; integrated security = true ");
+            conn = new SqlConnection("server = WINDOWS-11; database = XStore ; integrated security = true ");
         }
 
         private void UC_Product_Load(object sender, EventArgs e)
         {
-            conn.Open();
-            MessageBox.Show(this, "successful", "results", MessageBoxButtons.OK);
-            conn.Close();
+            //conn.Open();
+            //MessageBox.Show(this, "successful", "results", MessageBoxButtons.OK);
+            //conn.Close();
             FillData(); // fill data from database in dataGridView
             GetCategory(); // get category from database and fill in comboBox
            
@@ -72,7 +72,10 @@ namespace saleProduct.ChildForm
         private void btnAdd_Click(object sender, EventArgs e)
         {
             conn.Open();
-            string insert = "INSERT INTO Product (ProductID, ProductName, QuantityStock, CategoryID, Price, ImageURL)\r\nVALUES (@id, @name, @quantity, @catid, @price, @img)";
+
+            string insert = "INSERT INTO Product (ProductID, ProductName, QuantityStock, CategoryID, Price, ImageURL)" +
+                "VALUES (@id, @name, @quantity, @catid, @price, @img)";
+
             SqlCommand cmd = new SqlCommand(insert, conn);
             cmd.Parameters.Add("@id", SqlDbType.VarChar);
             cmd.Parameters["@id"].Value = txtProductID.Text;
@@ -114,7 +117,24 @@ namespace saleProduct.ChildForm
             }
         }
 
+        private void ClearData()
+        {
+            txtProductID.Clear();
+            txtProductName.Clear();
+            txtProductQuantity.Clear();
+            txtProductPrice.Clear();
+            txtImage.Clear();
 
+            // Reset combobox về giá trị mặc định
+            if (cbCategory.Items.Count > 0)
+                cbCategory.SelectedIndex = 0;
+
+            // Xóa ảnh trong PictureBox
+            pbProduct.Image = null;
+
+            // Đưa focus về ô nhập tên sản phẩm
+            txtProductName.Focus();
+        }
         private void btnBrowser_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "D:\\...";
@@ -125,6 +145,70 @@ namespace saleProduct.ChildForm
                 txtImage.Text = openFileDialog1.FileName;
                 pbProduct.SizeMode = PictureBoxSizeMode.StretchImage;
                 pbProduct.Image = new Bitmap(openFileDialog1.FileName);
+            }
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Do you want to edit?", "Question",
+        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string update = @"UPDATE Product 
+                          SET ProductName = @name,
+                              QuantityStock = @quantity,
+                              CategoryID = @catid,
+                              Price = @price,
+                              ImageURL = @img
+                          WHERE ProductID = @id";
+
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(update, conn);
+
+                cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = txtProductID.Text;
+                cmd.Parameters.Add("@name", SqlDbType.VarChar).Value = txtProductName.Text;
+                cmd.Parameters.Add("@price", SqlDbType.Decimal).Value = Convert.ToDecimal(txtProductPrice.Text);
+                cmd.Parameters.Add("@quantity", SqlDbType.Int).Value = txtProductQuantity.Text;
+                cmd.Parameters.Add("@catid", SqlDbType.VarChar).Value = cbCategory.SelectedValue.ToString();
+
+                // Lưu đường dẫn ảnh theo format giống Add Product
+                string fileName = Path.GetFileName(txtImage.Text);
+                string imagePathInDb = "img/" + fileName;
+                cmd.Parameters.Add("@img", SqlDbType.VarChar).Value = imagePathInDb;
+
+                int i = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (i > 0)
+                {
+                    FillData();
+                    ClearData();
+                    MessageBox.Show(this, "Updated successfully!", "Result",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show(this, "Do you want to delete?", "Question",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                conn.Open();
+                string delete = "DELETE FROM Product WHERE ProductID = @id";
+                SqlCommand cmd = new SqlCommand(delete, conn);
+
+                cmd.Parameters.Add("@id", SqlDbType.VarChar).Value = txtProductID.Text;
+
+                int i = cmd.ExecuteNonQuery();
+                conn.Close();
+
+                if (i > 0)
+                {
+                    FillData();
+                    ClearData();
+                    MessageBox.Show(this, "Deleted successfully!", "Result",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

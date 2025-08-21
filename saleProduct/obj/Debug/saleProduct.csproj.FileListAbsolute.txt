@@ -40,6 +40,8 @@ D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.csproj.CoreCompileInputs.
 D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProd.E9C17059.Up2Date
 D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.exe
 D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.pdb
-D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.exe.config
 D:\DBasm\saleProduct\saleProduct\bin\Debug\saleProduct.pdb
 D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.Register.resources
+D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.StaffForm.resources
+D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.WareHouseForm.resources
+D:\DBasm\saleProduct\saleProduct\obj\Debug\saleProduct.exe.config
