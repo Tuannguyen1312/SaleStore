@@ -234,6 +234,7 @@ namespace saleProduct.ChildForm
                 txtOrderID.Text = row.Cells["OrderID"].Value.ToString();
                 txtQuantity.Text = row.Cells["Quantity"].Value.ToString();
                 dtOrder.Value = Convert.ToDateTime(row.Cells["OrderDate"].Value);
+
                 cbCustomer.SelectedValue = row.Cells["CustomerID"].Value;
                 cbEmployee.SelectedValue = row.Cells["EmployeeID"].Value;
                 cbProductName.SelectedValue = row.Cells["ProductID"].Value;
